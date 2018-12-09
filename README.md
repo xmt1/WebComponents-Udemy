@@ -94,3 +94,22 @@ When the Shadow DOM is set, the *shadowRoot* of the component needs to be access
 
 //Shadow DOM
 this.shadowRoot.appendChild(tooltipIcon);
+```
+
+**Extending a build-in element**        
+
+The code below shows how to modify the anchor (```<a href=""></a>```) element
+
+```javascript
+class ConfirmLink extends HTMLAnchorElement {
+  connectedCallback() {
+    this.addEventListener('click', event => {
+      if (!confirm('Do you really want to leave?')) {
+        event.preventDefault();
+      }
+    });
+  }
+}
+
+customElements.define('uc-confirm-link', ConfirmLink, { extends: 'a' });
+```
