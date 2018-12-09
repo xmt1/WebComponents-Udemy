@@ -46,3 +46,51 @@ https://stackoverflow.com/questions/22545621/do-custom-elements-require-a-dash-i
     * *disconnectedCallback()*
 4. Observed attribute updated
     * attributeChangedCallback()
+
+**Using .bind()**
+
+Use .bind() to ensure methods fired from event listeners can't be accessed from other classes/components:
+
+```javascript
+tooltipIcon.addEventListener('mouseenter', this._showTooltip.bind(this));
+```
+
+**Add attributes to custom components**
+
+Example:
+```html
+<uc-tooltip text="Web Components is a set of standards"></uc-tooltip>
+```
+
+The above custom element has a text attribute which can be setup using *.getAttribute()* when the component is attached to the DOM:
+
+```javascript
+connectedCallback() {
+    if (this.hasAttribute('text')) {
+        // tooltipText is defined in the components constructor()
+        this._tooltipText = this.getAttribute('text');
+    }
+  }
+```
+
+**Using the Shadow DOM**        
+
+Unlock the Shadow DOM for a custom component by using *attachShadow()* in the component's constructor:
+
+```javascript
+constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+```
+
+When the Shadow DOM is set, the *shadowRoot* of the component needs to be accessed before manipulating other DOM properties:
+
+```javascript
+/*
+  Light DOM
+  this.appendChild(tooltipIcon);
+*/
+
+//Shadow DOM
+this.shadowRoot.appendChild(tooltipIcon);
