@@ -113,3 +113,7 @@ class ConfirmLink extends HTMLAnchorElement {
 
 customElements.define('uc-confirm-link', ConfirmLink, { extends: 'a' });
 ```
+
+### Section 4
+
+
