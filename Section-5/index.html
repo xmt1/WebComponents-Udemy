@@ -19,6 +19,7 @@
 </head>
 <body>
   <uc-modal>
+    <h1 slot="title">Please Confirm Information</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa minima blanditiis nesciunt est nulla unde iusto sunt exercitationem officia nisi.</p>
   </uc-modal>
   <p>Please confirm your choice.</p>
@@ -27,7 +28,10 @@
     const confirmButton = document.querySelector('button');
     const modal = document.querySelector('uc-modal');
     confirmButton.addEventListener('click', () => {
-      modal.setAttribute('opened', '');
+      //modal.setAttribute('opened', '');
+      if (!modal.isOpen) {
+        modal.open();
+      }
     });
   </script>
 </body>
