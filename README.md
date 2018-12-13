@@ -116,4 +116,36 @@ customElements.define('uc-confirm-link', ConfirmLink, { extends: 'a' });
 
 ### Section 4
 
+**Listening to attribute changes**  
 
+Before logic can be performed when an attribute is changed, an *observedAttributes()* method needs to be setup:
+
+```javascript
+static get observedAttributes() {
+  return ['text']; // Put attribute names that are being 'observed' for changes here
+}
+```
+
+Use the *attributeChangedCallback(name, oldValue, newValue)* function to peform logic after an attribute changes on a custom web component.  This method has three parameters:
+
+  1. name - the name of the attribute
+  2. oldValue - the old value before the change
+  3. newValue - the updated value that was changed
+
+```javascript
+attributeChangedCallback(name, oldValue, newValue) {
+    // If there's no change, don't do anything
+    if (oldValue === newValue) {
+      return;
+    }
+    
+    /**
+     * There could be multiple attributes being changed,
+     * Using an If statement, do something only if the attribute
+     * with the name of 'text' changes
+     **/
+    if (name === 'text') {
+      this._tooltipText = newValue;
+    }
+  }
+```
