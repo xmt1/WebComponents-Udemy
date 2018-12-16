@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Card</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    main {
+      margin-top: 20px;
+    }
+
+    my-card {
+      
+    }
+  </style>
+  <script src="my-card.js"></script>
+</head>
+
+<body>
+  <main>
+    <my-card img-src="https://via.placeholder.com/225">
+      <h3 slot="card-headline">Headline Slot</h3>
+      <p slot="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, tempore repellat?
+        Quisquam esse, vitae doloremque veniam explicabo incidunt distinctio facere expedita, magni quae assumenda
+        aspernatur alias sequi eligendi labore mollitia!</p>
+      <div slot="card-links">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+      </div>
+    </my-card>
+  </main>
+
+</body>
+
+</html>
